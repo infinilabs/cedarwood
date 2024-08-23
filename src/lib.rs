@@ -61,8 +61,8 @@
 //! assert_eq!(vec![4], result);
 //! ```
 
+use core::fmt;
 use smallvec::SmallVec;
-use std::fmt;
 
 /// NInfo stores the information about the trie
 #[derive(Debug, Default, Clone)]
