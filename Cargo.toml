@@ -33,4 +33,7 @@ required-features = []
 all-features = true
 
 [dependencies]
+proc-macro2 = { version="1.0.86",features = ["proc-macro"]}
 smallvec = { version = "1.6.1", features = ["union"] }
+
+[workspace]
