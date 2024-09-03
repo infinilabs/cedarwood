@@ -62,10 +62,11 @@
 //! ```
 
 use core::fmt;
+use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
 /// NInfo stores the information about the trie
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 struct NInfo {
     sibling: u8, // the index of right sibling, it is 0 if it doesn't have a sibling.
     child: u8,   // the index of the first child
@@ -73,7 +74,7 @@ struct NInfo {
 
 /// Node contains the array of `base` and `check` as specified in the paper: "An efficient implementation of trie structures"
 /// https://dl.acm.org/citation.cfm?id=146691
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 struct Node {
     base_: i32, // if it is a negative value, then it stores the value of previous index that is free.
     check: i32, // if it is a negative value, then it stores the value of next index that is free.
@@ -90,7 +91,7 @@ impl Node {
 }
 
 /// Block stores the linked-list pointers and the stats info for blocks.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 struct Block {
     prev: i32,   // previous block's index, 3 bytes width
     next: i32,   // next block's index, 3 bytes width
@@ -122,7 +123,7 @@ enum BlockType {
 }
 
 /// `Cedar` holds all of the information about double array trie.
-#[derive(Clone)]
+#[derive(Serialize, Deserialize, Clone)]
 pub struct Cedar {
     array: Vec<Node>, // storing the `base` and `check` info from the original paper.
     n_infos: Vec<NInfo>,

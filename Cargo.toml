@@ -11,13 +11,10 @@ categories = ["data-structures", "text-processing"]
 edition = "2018"
 exclude = ["/benches/**", "/.travis.yml"]
 
-[badges]
-travis-ci = { repository = "MnO2/cedarwood" }
-codecov = { repository = "MnO2/cedarwood" }
-
 [features]
 default = []
 reduced-trie = []
+persistence=[]
 
 [dev-dependencies]
 criterion = "0.4.0"
@@ -33,7 +30,10 @@ required-features = []
 all-features = true
 
 [dependencies]
-proc-macro2 = { version="1.0.86",features = ["proc-macro"]}
-smallvec = { version = "1.6.1", features = ["union"] }
+proc-macro2 = { version="1.0.86",features = ["proc-macro"],default-features = false}
+smallvec = { version = "1.6.1", features = ["union"],default-features = false }
 
-[workspace]
+#persistence
+serde = { version = "1.0", features = ["derive"], default-features = false }
+
+#[workspace]
