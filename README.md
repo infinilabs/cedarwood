@@ -1,11 +1,6 @@
 # cedarwood
 
-Efficiently-updatable double-array trie in Rust (ported from cedar). This library is tested with reasonably enough of randomized tests, but it is considered as beta since it is not yet tested in high-pressured production environment. Please let me know if you have good use cases to prove its stability. 
-
-[![Build Status](https://travis-ci.com/MnO2/cedarwood.svg?branch=master)](https://travis-ci.org/MnO2/cedarwood)
-[![codecov](https://codecov.io/gh/MnO2/cedarwood/branch/master/graph/badge.svg)](https://codecov.io/gh/MnO2/cedarwood)
-[![Crates.io](https://img.shields.io/crates/v/cedarwood.svg)](https://crates.io/crates/cedarwood)
-[![docs.rs](https://docs.rs/cedarwood/badge.svg)](https://docs.rs/cedarwood/)
+Efficiently-updatable double-array trie in Rust (ported from cedar). Forked from [here](https://github.com/MnO2/cedarwood).
 
 ## Installation
 
@@ -13,7 +8,7 @@ Add it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-cedarwood = "0.4"
+cedarwood = { git = "https://github.com/infinilabs/cedarwood", branch = "main",default-features = false }
 ```
 
 then you are good to go. If you are using Rust 2015 you have to `extern crate cedarwood` to your crate root as well.
